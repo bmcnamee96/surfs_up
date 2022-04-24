@@ -29,15 +29,16 @@ app = Flask(__name__)
 # create routes
 @app.route('/')
 def welcome():
-    return(
-    '''
-    Welcome to the Climate Analysis API!
-    Available Routes:
+    routes = (
+    """Welcome to the Climate Analysis API!
+    /Available Routes:
     /api/v1.0/precipitation
     /api/v1.0/stations
     /api/v1.0/tobs
     /api/v1.0/temp/start/end
-    ''')
+    """)
+    return routes
+       
 
 @app.route("/api/v1.0/precipitation")
 def precipitation():
@@ -81,4 +82,5 @@ def stats(start=None, end=None):
 
 
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
+    app.run(debug=True)
